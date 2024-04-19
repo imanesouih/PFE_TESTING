@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execution Report</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .pass {
+        background-color: #8bc34a;
+      }
+
+      .fail {
+        background-color: #ff0000;
+        color: white;
+      }
+
+      .skip {
+        background-color: #ff9800;
+      }
+
+      .filterButton {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .filterButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="C:/Users/Oumayma.HAMDI/OneDrive - Akkodis/Desktop/New folder/Version6-Test/Robot-framework-logo (1).png"
+      alt="Robot Framework Logo"
+    />
+    <h2>Total Statistics</h2>
+    <table>
+      <tr>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="pass">4</td>
+        <td class="fail">3</td>
+        <td class="skip">0</td>
+      </tr>
+    </table>
+
+    <h2>Statistics by Test Suite</h2>
+    <table>
+      <tr>
+        <th>Suite Name</th>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+        <th>Start Date</th>
+        <th>Start Hour</th>
+        <th>End Date</th>
+        <th>End Hour</th>
+        <th>Elapsed Time</th>
+      </tr>
+      
+      <tr>
+        <td>Tests</td>
+        <td>0</td>
+        <td class="pass">0</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-18</td>
+        <td>12:17:07</td>
+        <td>2024-04-18</td>
+        <td>12:17:45</td>
+        <td>0:00:38.823932</td>
+      </tr>
+      
+      <tr>
+        <td>Api Tests</td>
+        <td>3</td>
+        <td class="pass">0</td>
+        <td class="fail">3</td>
+        <td class="skip">0</td>
+        <td>2024-04-18</td>
+        <td>12:17:08</td>
+        <td>2024-04-18</td>
+        <td>12:17:08</td>
+        <td>0:00:00.287393</td>
+      </tr>
+      
+      <tr>
+        <td>ApiTests</td>
+        <td>0</td>
+        <td class="pass">0</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-18</td>
+        <td>12:17:08</td>
+        <td>2024-04-18</td>
+        <td>12:17:10</td>
+        <td>0:00:02.964715</td>
+      </tr>
+      
+      <tr>
+        <td>Get</td>
+        <td>2</td>
+        <td class="pass">2</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-18</td>
+        <td>12:17:08</td>
+        <td>2024-04-18</td>
+        <td>12:17:10</td>
+        <td>0:00:02.958736</td>
+      </tr>
+      
+      <tr>
+        <td>Test</td>
+        <td>2</td>
+        <td class="pass">2</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-18</td>
+        <td>12:17:10</td>
+        <td>2024-04-18</td>
+        <td>12:17:45</td>
+        <td>0:00:35.819933</td>
+      </tr>
+      
+    </table>
+
+    <h2>Statistics by Test</h2>
+    <div class="button-container">
+      <button class="filterButton" onclick="filterTests('Pass')">
+        Passed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Fail')">
+        Failed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Skip')">
+        Skipped Tests
+      </button>
+    </div>
+    <table id="testTable">
+      <tr>
+        <th>Suite Name</th>
+        <th>Test Name</th>
+        <th>Test Status</th>
+        <th>Message</th>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Create New Task</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Get Task Details</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Validate Task Schema</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product By id</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Google</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Site</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+    </table>
+    <script>
+      function filterTests(status) {
+        var rows = document.getElementById("testTable").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i].classList.contains(status.toLowerCase())) {
+            rows[i].style.display = "table-row";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execution Report</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .pass {
+        background-color: #8bc34a;
+      }
+
+      .fail {
+        background-color: #ff0000;
+        color: white;
+      }
+
+      .skip {
+        background-color: #ff9800;
+      }
+
+      .filterButton {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .filterButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Informations récapitulatives</h2>
+    <p>
+      Status: 7 Tests, 4 Passed, 3 Failed
+    </p>
+    <h2>Total Statistics</h2>
+    <table>
+      <tr>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="pass">4</td>
+        <td class="fail">3</td>
+        <td class="skip">0</td>
+      </tr>
+    </table>
+
+    <h2>Statistics by Test Suite</h2>
+    <table>
+      <tr>
+        <th>Suite Name</th>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Elapsed Time</th>
+      </tr>
+      
+      <tr>
+        <td>Api Tests</td>
+        <td>3</td>
+        <td class="pass">0</td>
+        <td class="fail">3</td>
+        <td class="skip">0</td>
+        <td>2024-04-19 13:58:58</td>
+        <td>2024-04-19 13:58:58</td>
+        <td>0:00:00.061518</td>
+      </tr>
+      
+      <tr>
+        <td>Get</td>
+        <td>2</td>
+        <td class="pass">2</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-19 13:58:58</td>
+        <td>2024-04-19 13:58:59</td>
+        <td>0:00:01.907134</td>
+      </tr>
+      
+      <tr>
+        <td>Test</td>
+        <td>2</td>
+        <td class="pass">2</td>
+        <td class="fail">0</td>
+        <td class="skip">0</td>
+        <td>2024-04-19 13:58:59</td>
+        <td>2024-04-19 13:59:22</td>
+        <td>0:00:23.265863</td>
+      </tr>
+      
+    </table>
+
+    <h2>Statistics by Test</h2>
+    <div class="button-container">
+      <button class="filterButton" onclick="filterTests('Pass')">
+        Passed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Fail')">
+        Failed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Skip')">
+        Skipped Tests
+      </button>
+    </div>
+    <table id="testTable">
+      <tr>
+        <th>Suite Name</th>
+        <th>Test Name</th>
+        <th>Test Status</th>
+        <th>Message</th>
+        <th>Tags</th>
+        <!-- Nouvelle colonne pour les tags -->
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Create New Task</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+        <td>
+           N/A 
+        </td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Get Task Details</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+        <td>
+           N/A 
+        </td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Validate Task Schema</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+        <td>
+           N/A 
+        </td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product</td>
+        <td class="pass">PASS</td>
+        <td></td>
+        <td>
+           N/A 
+        </td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product By id</td>
+        <td class="pass">PASS</td>
+        <td></td>
+        <td>
+           N/A 
+        </td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Google</td>
+        <td class="pass">PASS</td>
+        <td></td>
+        <td>
+           <a href="https://imanesouih.atlassian.net/browse/FT-2">FT-2</a>
+          <!-- Afficher les liens Jira pour les tags -->
+          
+        </td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Site</td>
+        <td class="pass">PASS</td>
+        <td></td>
+        <td>
+           <a href="https://imanesouih.atlassian.net/browse/FT-3">FT-3</a>
+          <!-- Afficher les liens Jira pour les tags -->
+          
+        </td>
+      </tr>
+      
+    </table>
+
+    <script>
+      function filterTests(status) {
+        var rows = document.getElementById("testTable").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i].classList.contains(status.toLowerCase())) {
+            rows[i].style.display = "table-row";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

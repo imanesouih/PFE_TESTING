@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execution Report</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .pass {
+        background-color: #8bc34a;
+      }
+
+      .fail {
+        background-color: #ff0000;
+        color: white;
+      }
+
+      .skip {
+        background-color: #ff9800;
+      }
+
+      .filterButton {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .filterButton:hover {
+        background-color: #0056b3;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-summary">
+        <h1 style="margin-left: auto">Informations Recapitulatives:</h1>
+        <p>
+          <strong>Status:</strong> {{ total_tests }} Tests, {{ total_passed }}
+          Passed, {{ total_failed }} Failed
+        </p>
+      </div>
+      <div class="header-info">
+        <h1>Formation Generale:</h1>
+        <p><strong>Project Key:</strong> {{ env_info.project_key }}</p>
+        <p><strong>Environment:</strong> {{ env_info.environment }}</p>
+        <p><strong>Testeur:</strong> {{ env_info.Testeur }}</p>
+      </div>
+
+      <!-- <div class="header-divider"></div>
+      Diviseur pour séparer les deux sections -->
+    </div>
+
+    <h2>Total Statistics</h2>
+    <table>
+      <tr>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+      </tr>
+      <tr>
+        <td>{{ total_tests }}</td>
+        <td class="pass">{{ total_passed }}</td>
+        <td class="fail">{{ total_failed }}</td>
+        <td class="skip">{{ total_skipped }}</td>
+      </tr>
+    </table>
+
+    <h2>Statistics by Test Suite</h2>
+    <table>
+      <tr>
+        <th>Suite Name</th>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Elapsed Time</th>
+      </tr>
+      {% for suite, stats in suite_stats.items() %}
+      <tr>
+        <td>{{ suite }}</td>
+        <td>{{ stats.total_tests }}</td>
+        <td class="pass">{{ stats.passed }}</td>
+        <td class="fail">{{ stats.failed }}</td>
+        <td class="skip">{{ stats.skipped }}</td>
+        <td>{{ stats.start_time }}</td>
+        <td>{{ stats.end_time }}</td>
+        <td>{{ stats.elapsed_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h2>Statistics by Test</h2>
+    <div class="button-container">
+      <button class="filterButton" onclick="filterTests('Pass')">
+        Passed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Fail')">
+        Failed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Skip')">
+        Skipped Tests
+      </button>
+    </div>
+    <table id="testTable">
+      <tr>
+        <th>Suite Name</th>
+        <th>Test Name</th>
+        <th>Test Status</th>
+        <th>Message</th>
+        <th>Tags</th>
+        <!-- Nouvelle colonne pour les tags -->
+      </tr>
+      {% for detail in test_details %}
+      <tr class="{{ detail[2].lower() }}">
+        <td>{{ detail[0] }}</td>
+        <td>{{ detail[1] }}</td>
+        <td class="{{ detail[2].lower() }}">{{ detail[2] }}</td>
+        <td>{{ detail[3] }}</td>
+        <td>
+          {% if detail[4] %} {{ detail[4]|join(', ') }}
+          <!-- Afficher les liens Jira pour les tags -->
+          {% else %} N/A {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <script>
+      function filterTests(status) {
+        var rows = document.getElementById("testTable").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i].classList.contains(status.toLowerCase())) {
+            rows[i].style.display = "table-row";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

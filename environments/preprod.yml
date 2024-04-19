@@ -1,0 +1,8 @@
+DBHost: "ep-odd-mouse-a4br12y4-pooler.us-east-1.aws.neon.tech"
+DBName: "verceldb"
+DBPass: "7axBzIu0bVng"
+DBPort: "5432"
+DBUser: "default"
+BaseUrl: "https://testing-auto-pfe2024s-projects.vercel.app"
+CreateTaskEndpoint: "/create-task"
+url: "https://testing-auto-pfe2024s-projects.vercel.app/tasks/"

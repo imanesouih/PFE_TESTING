@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execution Report</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  padding: 1px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+p {
+  border-radius: 10px;
+}
+
+.pass {
+  background-color: #8bc34a;
+
+  text-align: center;
+}
+
+.fail {
+  background-color: #ff0000;
+  color: white;
+
+  text-align: center;
+}
+
+.skip {
+  background-color: #ff9800;
+
+  text-align: center;
+}
+
+.filterButton {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filterButton:hover {
+  background-color: #0056b3;
+}
+
+/* 
+
+*/
+
+.info-recap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-recap h2 {
+  /* je veux le text en italic */
+  font-style: italic;
+}
+
+.info-recap ul li span {
+  /*  je veux que le text sois bold */
+  font-weight: bold;
+}
+
+    </style>
+  </head>
+  <body>
+    <img
+      src="C:/Users/Oumayma.HAMDI/OneDrive - Akkodis/Desktop/New folder/Version6-Test/Robot-framework-logo (1).png"
+      alt="Robot Framework Logo"
+    />
+
+    <h2>Total Statistics</h2>
+    <table>
+      <tr>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+      </tr>
+      <tr>
+        <td>
+          <p>7</p>
+        </td>
+        <td>
+          <p class="pass">4</p>
+        </td>
+        <td>
+          <p class="fail">3</p>
+        </td>
+        <td><p class="skip">0</p></td>
+      </tr>
+    </table>
+
+    <h2>Statistics by Test Suite</h2>
+    <table>
+      <tr>
+        <th>Suite Name</th>
+        <th>Total Tests</th>
+        <th>Passed</th>
+        <th>Failed</th>
+        <th>Skipped</th>
+        <th>Start Date</th>
+        <th>Start Hour</th>
+        <th>End Date</th>
+        <th>End Hour</th>
+        <th>Elapsed Time</th>
+      </tr>
+      
+      <tr>
+        <td>Api Tests</td>
+        <td>3</td>
+        <td>
+          <p class="pass">0</p>
+        </td>
+        <td><p class="fail">3</p></td>
+        <td><p class="skip">0</p></td>
+        <td>2024-04-18</td>
+        <td>15:27:39</td>
+        <td>2024-04-18</td>
+        <td>15:27:39</td>
+        <td>0:00:00.150702</td>
+      </tr>
+      
+      <tr>
+        <td>Get</td>
+        <td>2</td>
+        <td>
+          <p class="pass">2</p>
+        </td>
+        <td><p class="fail">0</p></td>
+        <td><p class="skip">0</p></td>
+        <td>2024-04-18</td>
+        <td>15:27:39</td>
+        <td>2024-04-18</td>
+        <td>15:27:40</td>
+        <td>0:00:01.902944</td>
+      </tr>
+      
+      <tr>
+        <td>Test</td>
+        <td>2</td>
+        <td>
+          <p class="pass">2</p>
+        </td>
+        <td><p class="fail">0</p></td>
+        <td><p class="skip">0</p></td>
+        <td>2024-04-18</td>
+        <td>15:27:40</td>
+        <td>2024-04-18</td>
+        <td>15:28:02</td>
+        <td>0:00:22.413460</td>
+      </tr>
+      
+    </table>
+
+    <h2>Statistics by Test</h2>
+    <div class="button-container">
+      <button class="filterButton" onclick="filterTests('Pass')">
+        Passed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Fail')">
+        Failed Tests
+      </button>
+      <button class="filterButton" onclick="filterTests('Skip')">
+        Skipped Tests
+      </button>
+    </div>
+    <table id="testTable">
+      <tr>
+        <th>Suite Name</th>
+        <th>Test Name</th>
+        <th>Test Status</th>
+        <th>Message</th>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Create New Task</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Get Task Details</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="fail">
+        <td>Api Tests</td>
+        <td>Validate Task Schema</td>
+        <td class="fail">FAIL</td>
+        <td>Parent suite setup failed:
+Variable '${BaseUrl}' not found.</td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Get</td>
+        <td>Test Product By id</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Google</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+      <tr class="pass">
+        <td>Test</td>
+        <td>Test Site</td>
+        <td class="pass">PASS</td>
+        <td></td>
+      </tr>
+      
+    </table>
+    <script>
+      function filterTests(status) {
+        var rows = document.getElementById("testTable").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i].classList.contains(status.toLowerCase())) {
+            rows[i].style.display = "table-row";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
